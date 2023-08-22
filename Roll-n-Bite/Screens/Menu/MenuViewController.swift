@@ -65,12 +65,12 @@ class MenuViewController: UIViewController {
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupViews()
         setupConstraints()
         
         fetchCategories()
         fetchStories()
+        fetchProducts()
     }
     
     func setupViews() {
@@ -118,7 +118,7 @@ extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSour
             switch sectionType {
             case .highlights: return 1
             case .categories: return 1
-            case .menu: return 20
+            case .menu: return products.count
             }
         }
         return 0
@@ -139,7 +139,8 @@ extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 return cell
             case .menu:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCell.id, for: indexPath) as! ProductCell
-                
+                let product = products[indexPath.row]
+                cell.update(with: product)
                 return cell
             }
         }
@@ -168,7 +169,7 @@ extension MenuViewController: UICollectionViewDelegateFlowLayout {
             switch sectionType {
             case .highlights: return CGSize(width: UIScreen.main.bounds.width, height: 200)
             case .categories: return CGSize(width: UIScreen.main.bounds.width, height: 50)
-            case .menu: return CGSize(width: 170, height: 250)
+            case .menu: return CGSize(width: 170, height: 300)
             }
         }
          return CGSize(width: 0, height: 0)

@@ -13,8 +13,8 @@ class StoryContainerCell: UICollectionViewCell {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
         collectionView.showsHorizontalScrollIndicator = false
-        layout.itemSize = CGSize(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.width * 0.4)
-        
+        //layout.itemSize = CGSize(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.width * 0.4)
+        layout.itemSize = CGSize(width: 130, height: 170)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(StoryCell.self, forCellWithReuseIdentifier: StoryCell.id)
@@ -92,6 +92,8 @@ class StoryCell: UICollectionViewCell {
     
     func setupViews() {
         contentView.backgroundColor = .red
+        layer.cornerRadius = 17
+        layer.masksToBounds = true
         contentView.addSubview(storyImageView)
     }
     

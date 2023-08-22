@@ -2,10 +2,14 @@ import UIKit
 
 class ProductCell: UICollectionViewCell {
     
+    static let id = "ProductCell"
+    
     var stackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
-        stack.spacing = 8
+        stack.distribution = .fillProportionally
+        stack.alignment = .leading
+        stack.spacing = 10
         return stack
     }()
     
@@ -18,18 +22,24 @@ class ProductCell: UICollectionViewCell {
     var titleLabel: UILabel = {
         let label = UILabel()
         label.text = ""
-        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         return label
     }()
     
     var priceLabel: UILabel = {
         let label = UILabel()
         label.text = ""
-        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         return label
     }()
     
-    static let id = "ProductCell"
+    var weightLabel: UILabel = {
+        let label = UILabel()
+        label.text = ""
+        label.font = UIFont.systemFont(ofSize: 13, weight: .regular)
+        return label
+    }()
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,26 +52,40 @@ class ProductCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func update(with product: Product) {
+        titleLabel.text = product.title.capitalized
+        priceLabel.text = "\(product.price) P"
+        productImageView.image = product.image
+        weightLabel.text = "\(product.weight) г"
+    }
+    
     func setupViews() {
-        contentView.backgroundColor = .brown
+        contentView.backgroundColor = .systemGray5
+        layer.cornerRadius = 17
+        layer.masksToBounds = true
         contentView.addSubview(stackView)
         contentView.addSubview(productImageView)
-        stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(priceLabel)
+        stackView.addArrangedSubview(titleLabel)
+        contentView.addSubview(weightLabel)
     }
     
     func setupConstraints() {
         productImageView.snp.makeConstraints { make in
             make.top.equalTo(contentView).offset(20)
             make.left.right.equalTo(contentView).inset(16)
+            make.height.equalTo(115)
         }
         
         stackView.snp.makeConstraints { make in
-            make.top.equalTo(productImageView.snp.bottom).offset(20)
+            make.top.equalTo(productImageView.snp.bottom).offset(16)
             make.left.right.equalTo(contentView).inset(16)
-            make.bottom.equalTo(contentView).offset(30)
-            make.height.equalTo(150)
-            make.width.equalTo(300)
+            //make.bottom.equalTo(contentView).inset(50)
+        }
+        
+        weightLabel.snp.makeConstraints { make in
+            make.left.equalTo(contentView).inset(16)
+            make.bottom.equalTo(contentView).inset(16)
         }
     }
 }
