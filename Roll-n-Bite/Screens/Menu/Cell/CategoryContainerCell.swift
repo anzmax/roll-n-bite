@@ -42,11 +42,10 @@ class CategoryContainerCell: UICollectionViewCell {
     
     func update(with category: [Category]) {
         categories = category
-        //titleLabel.text = category.title
     }
 }
 
-extension CategoryContainerCell: UICollectionViewDataSource, UICollectionViewDelegate {
+extension CategoryContainerCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 7
@@ -61,7 +60,9 @@ extension CategoryContainerCell: UICollectionViewDataSource, UICollectionViewDel
         return cell
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+    }
 }
 
 
@@ -88,8 +89,10 @@ class CategoryCell: UICollectionViewCell {
     }
     
     func setupViews() {
+        layer.cornerRadius = 17
+        layer.masksToBounds = true
         contentView.addSubview(titleLabel)
-        contentView.backgroundColor = .green
+        contentView.backgroundColor = .systemGreen.withAlphaComponent(0.8)
     }
     
     func setupConstraints() {

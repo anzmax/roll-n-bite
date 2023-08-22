@@ -4,7 +4,7 @@ class CategoryService {
     
     func fetchCategories() -> [Category] {
         
-        var categories: [Category] = [
+        let categories: [Category] = [
             Category(title: "ДОНЕРЫ"),
             Category(title: "КОМБО"),
             Category(title: "ЗАКУСКИ"),

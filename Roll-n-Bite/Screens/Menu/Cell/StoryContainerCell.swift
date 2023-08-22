@@ -34,7 +34,7 @@ class StoryContainerCell: UICollectionViewCell {
     }
     
     func setupViews() {
-        contentView.backgroundColor = .yellow
+        contentView.backgroundColor = .systemGray6
         contentView.addSubview(collectionView)
         //contentView.addSubview(categoriesCollectionView)
     }
@@ -65,6 +65,9 @@ extension StoryContainerCell: UICollectionViewDataSource, UICollectionViewDelega
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+    }
     
 }
 

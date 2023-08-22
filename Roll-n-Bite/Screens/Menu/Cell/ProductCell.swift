@@ -4,6 +4,19 @@ class ProductCell: UICollectionViewCell {
     
     static let id = "ProductCell"
     
+    var count = 0 {
+        didSet {
+            if count > 0 {
+                minusButton.isHidden = false
+                countLabel.isHidden = false
+                countLabel.text = "\(count)"
+            } else {
+                minusButton.isHidden = true
+                countLabel.isHidden = true
+            }
+        }
+    }
+    
     var stackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
@@ -40,10 +53,54 @@ class ProductCell: UICollectionViewCell {
         return label
     }()
     
+    lazy var plusButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "plus"), for: .normal)
+        button.tintColor = .black
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        button.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        button.contentMode = .scaleAspectFit
+        button.addTarget(self, action: #selector(plusButtonTapped(button: )), for: .touchUpInside)
+        return button
+    }()
+    
+    lazy var minusButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "minus"), for: .normal)
+        button.tintColor = .black
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        button.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        button.contentMode = .scaleAspectFit
+        button.addTarget(self, action: #selector(minusButtonTapped(button: )), for: .touchUpInside)
+        return button
+    }()
+    
+    var countLabel: UILabel = {
+        let label = UILabel()
+        label.text = "1"
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 15)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        label.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        return label
+    }()
+    
+    var horizontalStackView: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .horizontal
+        stack.backgroundColor = .systemYellow
+        stack.layer.cornerRadius = 17
+        stack.clipsToBounds = true
+        return stack
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        count = 0
         setupViews()
         setupConstraints()
     }
@@ -53,6 +110,7 @@ class ProductCell: UICollectionViewCell {
     }
     
     func update(with product: Product) {
+        count = 0
         titleLabel.text = product.title.capitalized
         priceLabel.text = "\(product.price) P"
         productImageView.image = product.image
@@ -60,7 +118,7 @@ class ProductCell: UICollectionViewCell {
     }
     
     func setupViews() {
-        contentView.backgroundColor = .systemGray5
+        contentView.backgroundColor = .systemGray6
         layer.cornerRadius = 17
         layer.masksToBounds = true
         contentView.addSubview(stackView)
@@ -68,6 +126,11 @@ class ProductCell: UICollectionViewCell {
         stackView.addArrangedSubview(priceLabel)
         stackView.addArrangedSubview(titleLabel)
         contentView.addSubview(weightLabel)
+        
+        contentView.addSubview(horizontalStackView)
+        horizontalStackView.addArrangedSubview(minusButton)
+        horizontalStackView.addArrangedSubview(countLabel)
+        horizontalStackView.addArrangedSubview(plusButton)
     }
     
     func setupConstraints() {
@@ -87,5 +150,20 @@ class ProductCell: UICollectionViewCell {
             make.left.equalTo(contentView).inset(16)
             make.bottom.equalTo(contentView).inset(16)
         }
+        
+        horizontalStackView.snp.makeConstraints { make in
+            make.right.equalTo(contentView).inset(10)
+            make.bottom.equalTo(contentView).inset(10)
+        }
+    }
+    
+    @objc func plusButtonTapped(button: UIButton) {
+        
+        count += 1
+    }
+    
+    @objc func minusButtonTapped(button: UIButton) {
+        
+        count -= 1
     }
 }
