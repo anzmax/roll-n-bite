@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "фирм-сол.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

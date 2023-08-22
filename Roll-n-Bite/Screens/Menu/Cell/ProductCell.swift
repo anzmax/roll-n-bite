@@ -35,6 +35,7 @@ class ProductCell: UICollectionViewCell {
     var titleLabel: UILabel = {
         let label = UILabel()
         label.text = ""
+        label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         return label
     }()
@@ -99,7 +100,6 @@ class ProductCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         count = 0
         setupViews()
         setupConstraints()
@@ -118,7 +118,7 @@ class ProductCell: UICollectionViewCell {
     }
     
     func setupViews() {
-        contentView.backgroundColor = .systemGray6
+        contentView.backgroundColor = .systemGray6.withAlphaComponent(0.6)
         layer.cornerRadius = 17
         layer.masksToBounds = true
         contentView.addSubview(stackView)
@@ -135,9 +135,11 @@ class ProductCell: UICollectionViewCell {
     
     func setupConstraints() {
         productImageView.snp.makeConstraints { make in
-            make.top.equalTo(contentView).offset(20)
-            make.left.right.equalTo(contentView).inset(16)
-            make.height.equalTo(115)
+            make.top.equalTo(contentView).inset(10)
+            make.left.equalTo(contentView).inset(16)
+            make.right.equalTo(contentView)
+            make.height.equalTo(120)
+            make.width.equalTo(120)
         }
         
         stackView.snp.makeConstraints { make in
@@ -157,13 +159,12 @@ class ProductCell: UICollectionViewCell {
         }
     }
     
+    //MARK: - Actions
     @objc func plusButtonTapped(button: UIButton) {
-        
         count += 1
     }
     
     @objc func minusButtonTapped(button: UIButton) {
-        
         count -= 1
     }
 }

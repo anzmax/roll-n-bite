@@ -36,7 +36,6 @@ class StoryContainerCell: UICollectionViewCell {
     func setupViews() {
         contentView.backgroundColor = .systemGray6
         contentView.addSubview(collectionView)
-        //contentView.addSubview(categoriesCollectionView)
     }
     
     func setupConstraints() {
@@ -52,6 +51,7 @@ class StoryContainerCell: UICollectionViewCell {
     
 }
 
+//MARK: - Extensions
 extension StoryContainerCell: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -71,7 +71,7 @@ extension StoryContainerCell: UICollectionViewDataSource, UICollectionViewDelega
     
 }
 
-
+//MARK: - Cell
 class StoryCell: UICollectionViewCell {
     
     static let id = "StoryCell"

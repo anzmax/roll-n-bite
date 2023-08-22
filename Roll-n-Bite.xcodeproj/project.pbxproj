@@ -32,6 +32,8 @@
 		F4738E5D2A853FF2003E2311 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4738E5C2A853FF2003E2311 /* ChatViewController.swift */; };
 		F4738E5F2A8541BB003E2311 /* EnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4738E5E2A8541BB003E2311 /* EnterViewController.swift */; };
 		F4738E612A8A1519003E2311 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4738E602A8A1518003E2311 /* ProductCell.swift */; };
+		F4AF58E12A95020F004F0B91 /* Information.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AF58E02A95020F004F0B91 /* Information.swift */; };
+		F4AF58E32A950428004F0B91 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AF58E22A950428004F0B91 /* InfoTableViewCell.swift */; };
 		F4C6D4292A8D1C9000AA49D4 /* CategoryContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C6D4282A8D1C9000AA49D4 /* CategoryContainerCell.swift */; };
 		F4C6D42B2A8D1CEA00AA49D4 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C6D42A2A8D1CEA00AA49D4 /* Categories.swift */; };
 		F4C6D42E2A8E379900AA49D4 /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C6D42D2A8E379900AA49D4 /* CategoryService.swift */; };
@@ -67,6 +69,8 @@
 		F4738E5C2A853FF2003E2311 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		F4738E5E2A8541BB003E2311 /* EnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterViewController.swift; sourceTree = "<group>"; };
 		F4738E602A8A1518003E2311 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		F4AF58E02A95020F004F0B91 /* Information.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Information.swift; sourceTree = "<group>"; };
+		F4AF58E22A950428004F0B91 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
 		F4C6D4282A8D1C9000AA49D4 /* CategoryContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContainerCell.swift; sourceTree = "<group>"; };
 		F4C6D42A2A8D1CEA00AA49D4 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		F4C6D42D2A8E379900AA49D4 /* CategoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryService.swift; sourceTree = "<group>"; };
@@ -128,8 +132,8 @@
 		F4738E332A84CF2C003E2311 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F4738E242A84CF14003E2311 /* Main.storyboard */,
 				F4738E272A84CF15003E2311 /* Assets.xcassets */,
+				F4738E242A84CF14003E2311 /* Main.storyboard */,
 				F4738E292A84CF15003E2311 /* LaunchScreen.storyboard */,
 				F4738E2C2A84CF15003E2311 /* Info.plist */,
 			);
@@ -177,6 +181,7 @@
 				F4738E542A851448003E2311 /* Story.swift */,
 				F4C6D42A2A8D1CEA00AA49D4 /* Categories.swift */,
 				F4C6D4312A8E3FCE00AA49D4 /* Product.swift */,
+				F4AF58E02A95020F004F0B91 /* Information.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -186,6 +191,7 @@
 			children = (
 				F4738E3D2A84D496003E2311 /* ProfileViewController.swift */,
 				F4738E5A2A853FB2003E2311 /* AboutUsViewController.swift */,
+				F4AF58E22A950428004F0B91 /* InfoTableViewCell.swift */,
 				F4738E5C2A853FF2003E2311 /* ChatViewController.swift */,
 				F4738E5E2A8541BB003E2311 /* EnterViewController.swift */,
 			);
@@ -318,6 +324,7 @@
 				F4738E552A851448003E2311 /* Story.swift in Sources */,
 				F4738E1F2A84CF14003E2311 /* AppDelegate.swift in Sources */,
 				F4738E402A84D4B3003E2311 /* CoinStoreViewController.swift in Sources */,
+				F4AF58E32A950428004F0B91 /* InfoTableViewCell.swift in Sources */,
 				F4738E5B2A853FB2003E2311 /* AboutUsViewController.swift in Sources */,
 				F4738E5D2A853FF2003E2311 /* ChatViewController.swift in Sources */,
 				F4738E502A84EF5B003E2311 /* CustomSegmentedControl.swift in Sources */,
@@ -328,6 +335,7 @@
 				F4738E212A84CF14003E2311 /* SceneDelegate.swift in Sources */,
 				F4C6D42B2A8D1CEA00AA49D4 /* Categories.swift in Sources */,
 				F4738E612A8A1519003E2311 /* ProductCell.swift in Sources */,
+				F4AF58E12A95020F004F0B91 /* Information.swift in Sources */,
 				F4738E3A2A84D056003E2311 /* UIWindow+Key.swift in Sources */,
 				F4738E442A84E12C003E2311 /* UIScrollView+NextPage.swift in Sources */,
 				F4738E422A84D4D2003E2311 /* MenuViewController.swift in Sources */,

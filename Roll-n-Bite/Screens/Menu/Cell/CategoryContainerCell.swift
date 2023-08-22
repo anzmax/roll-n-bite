@@ -45,6 +45,7 @@ class CategoryContainerCell: UICollectionViewCell {
     }
 }
 
+//MARK: - Extensions
 extension CategoryContainerCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -65,7 +66,7 @@ extension CategoryContainerCell: UICollectionViewDataSource, UICollectionViewDel
     }
 }
 
-
+//MARK: - Cell
 class CategoryCell: UICollectionViewCell {
     
     static let id = "CategoryCell"
@@ -92,7 +93,7 @@ class CategoryCell: UICollectionViewCell {
         layer.cornerRadius = 17
         layer.masksToBounds = true
         contentView.addSubview(titleLabel)
-        contentView.backgroundColor = .systemGreen.withAlphaComponent(0.8)
+        contentView.backgroundColor = .systemGray6.withAlphaComponent(0.6)
     }
     
     func setupConstraints() {

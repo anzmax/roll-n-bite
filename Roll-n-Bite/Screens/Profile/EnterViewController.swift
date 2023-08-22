@@ -31,6 +31,7 @@ class EnterViewController: UIViewController {
     lazy var textField: UITextField = {
         let textField = UITextField()
         textField.backgroundColor = .systemGray6
+        textField.clearButtonMode = .never
         textField.text = "+7"
         textField.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         textField.textColor = .black

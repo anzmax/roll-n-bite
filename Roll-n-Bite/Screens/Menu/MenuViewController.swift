@@ -12,9 +12,9 @@ class MenuViewController: UIViewController {
     var storyService = StoryService()
     var productService = ProductService()
     
-    var categories: [Category] = []
-    var stories: [Story] = []
-    var products: [Product] = []
+    var categories = [Category]()
+    var stories = [Story]()
+    var products = [Product]()
     
     //MARK: - UI
     lazy var deliveryButton: UIButton = {
@@ -32,17 +32,6 @@ class MenuViewController: UIViewController {
         label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         return label
     }()
-    
-//    lazy var scrollView: UIScrollView = {
-//        let scrollView = UIScrollView()
-//        return scrollView
-//    }()
-//
-//    lazy var contentView: UIView = {
-//        let view = UIView()
-//        view.backgroundColor = .red
-//        return view
-//    }()
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -92,7 +81,8 @@ class MenuViewController: UIViewController {
         }
 
         collectionView.snp.makeConstraints { make in
-            make.left.right.bottom.equalTo(view.safeAreaLayoutGuide)
+            make.left.right.equalTo(view.safeAreaLayoutGuide)
+            make.bottom.equalTo(view)
             make.top.equalTo(adressLabel.snp.bottom).offset(20)
         }
     }
@@ -107,10 +97,7 @@ class MenuViewController: UIViewController {
     }
 }
 
-
-
 //MARK: - Extensions
-
 extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -169,7 +156,7 @@ extension MenuViewController: UICollectionViewDelegateFlowLayout {
             switch sectionType {
             case .highlights: return CGSize(width: UIScreen.main.bounds.width, height: 200)
             case .categories: return CGSize(width: UIScreen.main.bounds.width, height: 50)
-            case .menu: return CGSize(width: 170, height: 300)
+            case .menu: return CGSize(width: 172, height: 280)
             }
         }
          return CGSize(width: 0, height: 0)
@@ -178,10 +165,9 @@ extension MenuViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 16, bottom: 5, right: 16)
     }
-
-
 }
 
+//MARK: - Services
 extension MenuViewController {
     
     func fetchCategories() {
@@ -199,3 +185,18 @@ extension MenuViewController {
         collectionView.reloadData()
     }
 }
+
+//extension MenuViewController: UIScrollViewDelegate {
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        if scrollView == collectionView {
+//
+//            let offsetY = scrollView.contentOffset.y
+//            collectionView.transform = CGAffineTransform(translationX: 0, y: -offsetY)
+//        }
+//
+//    }
+//}
+//
+
+
+
