@@ -7,7 +7,7 @@ enum MenuSectionType: Int {
 }
 
 class MenuViewController: UIViewController {
-    
+        
     let categoryService = CategoryService()
     var storyService = StoryService()
     var productService = ProductService()
@@ -110,7 +110,7 @@ extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         return 0
     }
-    
+        
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if let sectionType = MenuSectionType(rawValue: indexPath.section) {
@@ -196,7 +196,6 @@ extension MenuViewController {
 //
 //    }
 //}
-//
 
 
 

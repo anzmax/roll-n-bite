@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "донер-карт-нап.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

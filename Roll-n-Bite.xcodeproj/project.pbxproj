@@ -34,6 +34,8 @@
 		F4738E612A8A1519003E2311 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4738E602A8A1518003E2311 /* ProductCell.swift */; };
 		F4AF58E12A95020F004F0B91 /* Information.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AF58E02A95020F004F0B91 /* Information.swift */; };
 		F4AF58E32A950428004F0B91 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AF58E22A950428004F0B91 /* InfoTableViewCell.swift */; };
+		F4AF58E62A96435C004F0B91 /* HighlightsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AF58E52A96435C004F0B91 /* HighlightsViewController.swift */; };
+		F4AF58E82A964A6D004F0B91 /* Highlights.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AF58E72A964A6D004F0B91 /* Highlights.swift */; };
 		F4C6D4292A8D1C9000AA49D4 /* CategoryContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C6D4282A8D1C9000AA49D4 /* CategoryContainerCell.swift */; };
 		F4C6D42B2A8D1CEA00AA49D4 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C6D42A2A8D1CEA00AA49D4 /* Categories.swift */; };
 		F4C6D42E2A8E379900AA49D4 /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C6D42D2A8E379900AA49D4 /* CategoryService.swift */; };
@@ -71,6 +73,8 @@
 		F4738E602A8A1518003E2311 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		F4AF58E02A95020F004F0B91 /* Information.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Information.swift; sourceTree = "<group>"; };
 		F4AF58E22A950428004F0B91 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
+		F4AF58E52A96435C004F0B91 /* HighlightsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightsViewController.swift; sourceTree = "<group>"; };
+		F4AF58E72A964A6D004F0B91 /* Highlights.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Highlights.swift; sourceTree = "<group>"; };
 		F4C6D4282A8D1C9000AA49D4 /* CategoryContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContainerCell.swift; sourceTree = "<group>"; };
 		F4C6D42A2A8D1CEA00AA49D4 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		F4C6D42D2A8E379900AA49D4 /* CategoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryService.swift; sourceTree = "<group>"; };
@@ -145,6 +149,7 @@
 			children = (
 				F4738E222A84CF14003E2311 /* SplashViewController.swift */,
 				F4738E3B2A84D279003E2311 /* MainScreenViewController.swift */,
+				F4AF58E42A96432F004F0B91 /* Highlights */,
 				F4738E562A851541003E2311 /* Menu */,
 				F4738E452A84EC00003E2311 /* Delivery */,
 				F4738E532A850CA8003E2311 /* Profile */,
@@ -179,6 +184,7 @@
 			children = (
 				F4738E492A84EDCE003E2311 /* Adresses.swift */,
 				F4738E542A851448003E2311 /* Story.swift */,
+				F4AF58E72A964A6D004F0B91 /* Highlights.swift */,
 				F4C6D42A2A8D1CEA00AA49D4 /* Categories.swift */,
 				F4C6D4312A8E3FCE00AA49D4 /* Product.swift */,
 				F4AF58E02A95020F004F0B91 /* Information.swift */,
@@ -213,6 +219,14 @@
 				F4738E3F2A84D4B3003E2311 /* CoinStoreViewController.swift */,
 			);
 			path = CoinStore;
+			sourceTree = "<group>";
+		};
+		F4AF58E42A96432F004F0B91 /* Highlights */ = {
+			isa = PBXGroup;
+			children = (
+				F4AF58E52A96435C004F0B91 /* HighlightsViewController.swift */,
+			);
+			path = Highlights;
 			sourceTree = "<group>";
 		};
 		F4C6D4212A8AB14B00AA49D4 /* Cell */ = {
@@ -313,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4738E3E2A84D496003E2311 /* ProfileViewController.swift in Sources */,
+				F4AF58E82A964A6D004F0B91 /* Highlights.swift in Sources */,
 				F4738E592A851A37003E2311 /* StoryContainerCell.swift in Sources */,
 				F4738E3C2A84D279003E2311 /* MainScreenViewController.swift in Sources */,
 				F4738E4C2A84EEEB003E2311 /* RuDeliveryTableViewCell.swift in Sources */,
@@ -325,6 +340,7 @@
 				F4738E1F2A84CF14003E2311 /* AppDelegate.swift in Sources */,
 				F4738E402A84D4B3003E2311 /* CoinStoreViewController.swift in Sources */,
 				F4AF58E32A950428004F0B91 /* InfoTableViewCell.swift in Sources */,
+				F4AF58E62A96435C004F0B91 /* HighlightsViewController.swift in Sources */,
 				F4738E5B2A853FB2003E2311 /* AboutUsViewController.swift in Sources */,
 				F4738E5D2A853FF2003E2311 /* ChatViewController.swift in Sources */,
 				F4738E502A84EF5B003E2311 /* CustomSegmentedControl.swift in Sources */,

@@ -111,7 +111,7 @@ class ProductCell: UICollectionViewCell {
     
     func update(with product: Product) {
         count = 0
-        titleLabel.text = product.title.capitalized
+        titleLabel.text = product.title
         priceLabel.text = "\(product.price) P"
         productImageView.image = product.image
         weightLabel.text = "\(product.weight) г"
