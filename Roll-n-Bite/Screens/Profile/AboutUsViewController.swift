@@ -3,6 +3,8 @@ import UIKit
 class AboutUsViewController: UIViewController {
     
     //MARK: - UI
+    var aboutUsLabel = HeadlineLabel(text: "О нас")
+    
     var topView: UIView = {
         let view = UIView()
         view.backgroundColor = .gray
@@ -27,13 +29,6 @@ class AboutUsViewController: UIViewController {
         let content = UIView()
         content.backgroundColor = .white
         return content
-    }()
-    
-    var aboutUsLabel: UILabel = {
-        let label = UILabel()
-        label.text = "О нас"
-        label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
-        return label
     }()
     
     var logoImageView: UIImageView = {

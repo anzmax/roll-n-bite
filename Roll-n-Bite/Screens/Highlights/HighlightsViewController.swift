@@ -4,7 +4,6 @@ import UIKit
 class HighlightsViewController: UIViewController {
     
     var highlights = [Highlights]()
-    var selectedHighlightIndex: Int?
     
     lazy var scrollView: UIScrollView = {
         let scroll = UIScrollView()

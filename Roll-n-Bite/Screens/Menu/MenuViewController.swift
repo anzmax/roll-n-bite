@@ -6,7 +6,15 @@ enum MenuSectionType: Int {
     case menu = 2
 }
 
-class MenuViewController: UIViewController {
+class MenuViewController: UIViewController, ProductCellDelegate {
+    
+    func plusButtonTapped(in cell: ProductCell) {
+        basketView.isHidden = false
+    }
+    
+    func minusButtonTapped(in cell: ProductCell) {
+        basketView.isHidden = true
+    }
         
     let categoryService = CategoryService()
     var storyService = StoryService()
@@ -50,6 +58,15 @@ class MenuViewController: UIViewController {
         return collectionView
     }()
     
+    var basketView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemGray6
+        view.layer.cornerRadius = 17
+        view.clipsToBounds = true
+        return view
+    }()
+    
+    lazy var basketButton = YellowButton(title: "КОРЗИНА")
 
     //MARK: - Life Cycle
     override func viewDidLoad() {
@@ -60,6 +77,18 @@ class MenuViewController: UIViewController {
         fetchCategories()
         fetchStories()
         fetchProducts()
+        setupActions()
+        basketView.isHidden = true
+    }
+    
+    func setupActions() {
+        basketButton.onAction = {
+            let orderVC = OrderViewController()
+            if let sheet = orderVC.sheetPresentationController {
+                sheet.detents = [.large()]
+            }
+            self.present(orderVC, animated: true)
+        }
     }
     
     func setupViews() {
@@ -67,6 +96,8 @@ class MenuViewController: UIViewController {
         view.addSubview(deliveryButton)
         view.addSubview(adressLabel)
         view.addSubview(collectionView)
+        view.addSubview(basketView)
+        basketView.addSubview(basketButton)
     }
     
     func setupConstraints() {
@@ -84,6 +115,17 @@ class MenuViewController: UIViewController {
             make.left.right.equalTo(view.safeAreaLayoutGuide)
             make.bottom.equalTo(view)
             make.top.equalTo(adressLabel.snp.bottom).offset(20)
+        }
+        
+        basketView.snp.makeConstraints { make in
+            make.left.right.bottom.equalTo(view)
+            make.height.equalTo(100)
+        }
+        
+        basketButton.snp.makeConstraints { make in
+            make.left.right.equalTo(basketView).inset(16)
+            make.height.equalTo(45)
+            make.bottom.equalTo(basketView).inset(36)
         }
     }
     
@@ -128,6 +170,7 @@ extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCell.id, for: indexPath) as! ProductCell
                 let product = products[indexPath.row]
                 cell.update(with: product)
+                cell.delegate = self
                 return cell
             }
         }

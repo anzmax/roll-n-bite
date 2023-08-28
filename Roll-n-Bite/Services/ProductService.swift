@@ -3,7 +3,7 @@ import UIKit
 class ProductService {
     
     func fetchProducts() -> [Product] {
-        var products: [Product] = [
+        let products: [Product] = [
             Product(title: "Аджика", price: "239", weight: "250", image: UIImage(named: "аджика")),
             Product(title: "Баварский", price: "239", weight: "250", image: UIImage(named: "баварский")),
             Product(title: "Берлинский", price: "239", weight: "250", image: UIImage(named: "берлинский")),

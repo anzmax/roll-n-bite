@@ -76,15 +76,17 @@ class EnterViewController: UIViewController {
         return label
     }()
     
-    lazy var getCodeButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Получить код", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = .systemYellow
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .bold)
-        button.layer.cornerRadius = 17
-        return button
-    }()
+//    lazy var getCodeButton: UIButton = {
+//        let button = UIButton()
+//        button.setTitle("Получить код", for: .normal)
+//        button.setTitleColor(.black, for: .normal)
+//        button.backgroundColor = .systemYellow
+//        button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .bold)
+//        button.layer.cornerRadius = 17
+//        return button
+//    }()
+    
+    lazy var getCodeButton = YellowButton.init(title: "Получить код")
     
     //MARK: - Life Cycle
     override func viewDidLoad() {
@@ -93,6 +95,7 @@ class EnterViewController: UIViewController {
         setupViews()
         setupConstraints()
         updatePlaceholder()
+        setupActions()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -103,6 +106,8 @@ class EnterViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now()) {
             self.textField.becomeFirstResponder()
         }
+
+
     }
 
 
@@ -115,6 +120,13 @@ class EnterViewController: UIViewController {
         contentView.addSubview(notificationLabel)
         contentView.addSubview(personalDataLabel)
         contentView.addSubview(getCodeButton)
+    }
+    
+    func setupActions() {
+        
+        getCodeButton.onAction = {
+            print("Get code")
+        }
     }
 
     func setupConstraints() {
@@ -159,6 +171,8 @@ class EnterViewController: UIViewController {
     @objc func textFieldDidChange(_ textField: UITextField) {
         updatePlaceholder()
     }
+    
+    
     
     func updatePlaceholder() {
         

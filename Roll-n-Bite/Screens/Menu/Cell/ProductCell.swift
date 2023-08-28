@@ -1,6 +1,17 @@
 import UIKit
 
+protocol ProductCellDelegate: AnyObject {
+    
+    func plusButtonTapped(in cell: ProductCell)
+    
+    func minusButtonTapped(in cell: ProductCell)
+}
+
 class ProductCell: UICollectionViewCell {
+    
+    var delegate: ProductCellDelegate?
+    
+    let menuVC = MenuViewController()
     
     static let id = "ProductCell"
     
@@ -162,9 +173,13 @@ class ProductCell: UICollectionViewCell {
     //MARK: - Actions
     @objc func plusButtonTapped(button: UIButton) {
         count += 1
+        delegate?.plusButtonTapped(in: self)
     }
     
     @objc func minusButtonTapped(button: UIButton) {
         count -= 1
+        if count == 0 {
+            delegate?.minusButtonTapped(in: self)
+        }
     }
 }

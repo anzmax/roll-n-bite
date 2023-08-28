@@ -3,17 +3,16 @@ import UIKit
 class ProfileViewController: UIViewController {
     
     //MARK: - UI
+    var profileLabel = HeadlineLabel(text: "Мой профиль")
+    
+    var heyLabel = HeadlineLabel(text: "Хэй-хэй!")
+    
+    lazy var enterButton = YellowButton(title: "Войти")
+    
     var topView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
         return view
-    }()
-    
-    var profileLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Мой профиль"
-        label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
-        return label
     }()
     
     var bottomView: UIView = {
@@ -22,18 +21,6 @@ class ProfileViewController: UIViewController {
         view.layer.cornerRadius = 20
         view.clipsToBounds = true
         return view
-    }()
-    
-    lazy var enterButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Войти", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = .systemYellow
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .bold)
-        button.layer.cornerRadius = 17
-        
-        button.addTarget(self, action: #selector(enterButtonTapped), for: .touchUpInside)
-        return button
     }()
     
    lazy var aboutUsButton: UIButton = {
@@ -82,14 +69,6 @@ class ProfileViewController: UIViewController {
         return image
     }()
     
-    var heyLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Хэй-хэй!"
-        label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
-        label.textColor = .black
-        return label
-    }()
-    
     var descriptionLabel: UILabel = {
         let label = UILabel()
         label.text = """
@@ -110,6 +89,7 @@ class ProfileViewController: UIViewController {
 
         setupViews()
         setupConstraints()
+        setupActions()
     }
     
     func setupViews() {
@@ -125,6 +105,16 @@ class ProfileViewController: UIViewController {
         contentView.addSubview(zenImageView)
         contentView.addSubview(heyLabel)
         contentView.addSubview(descriptionLabel)
+    }
+    
+    func setupActions() {
+        enterButton.onAction = {
+            let enterVC = EnterViewController()
+            if let sheet = enterVC.sheetPresentationController {
+                sheet.detents = [.large()]
+            }
+            self.present(enterVC, animated: true)
+        }
     }
     
     func setupConstraints() {
@@ -218,11 +208,11 @@ class ProfileViewController: UIViewController {
         present(chatVC, animated: true)
     }
     
-    @objc func enterButtonTapped() {
-        let enterVC = EnterViewController()
-        if let sheet = enterVC.sheetPresentationController {
-            sheet.detents = [.large()]
-        }
-        present(enterVC, animated: true)
-    }
+//    @objc func enterButtonTapped() {
+//        let enterVC = EnterViewController()
+//        if let sheet = enterVC.sheetPresentationController {
+//            sheet.detents = [.large()]
+//        }
+//        present(enterVC, animated: true)
+//    }
 }

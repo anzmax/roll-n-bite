@@ -3,6 +3,9 @@ import UIKit
 class DeliveryAdressesViewController: UIViewController {
     
     //MARK: - UI
+    
+    lazy var orderButton = YellowButton(title: "Заказать отсюда")
+    
     lazy var segmentedControl: CustomSegmentedControl = {
         let items = ["Доставка", "В донерной"]
         let control = CustomSegmentedControl(items: items)
@@ -52,15 +55,15 @@ class DeliveryAdressesViewController: UIViewController {
         return label
     }()
     
-    lazy var orderButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Заказать отсюда", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = .systemYellow
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .bold)
-        button.layer.cornerRadius = 17
-        return button
-    }()
+//    lazy var orderButton: UIButton = {
+//        let button = UIButton()
+//        button.setTitle("Заказать отсюда", for: .normal)
+//        button.setTitleColor(.black, for: .normal)
+//        button.backgroundColor = .systemYellow
+//        button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .bold)
+//        button.layer.cornerRadius = 17
+//        return button
+//    }()
 
     //MARK: - Life Cycle
     override func viewDidLoad() {
@@ -68,6 +71,14 @@ class DeliveryAdressesViewController: UIViewController {
 
         setupViews()
         setupConstraints()
+        setupActions()
+    }
+    
+    func setupActions() {
+        
+        orderButton.onAction = {
+            print("Press -> Order Button")
+        }
     }
     
     func setupViews() {
