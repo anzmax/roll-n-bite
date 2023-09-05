@@ -34,8 +34,10 @@ class StoryContainerCell: UICollectionViewCell {
     }
     
     func setupViews() {
-        contentView.backgroundColor = .systemGray6
+        contentView.backgroundColor = .white
         contentView.addSubview(collectionView)
+        contentView.layer.cornerRadius = 17
+        contentView.clipsToBounds = true
     }
     
     func setupConstraints() {

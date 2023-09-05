@@ -13,6 +13,7 @@
 		F401A2D32A9CDCC000F5A4E5 /* AddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401A2D22A9CDCC000F5A4E5 /* AddressTableViewCell.swift */; };
 		F401A2D72A9CF6A100F5A4E5 /* PromocodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401A2D62A9CF6A100F5A4E5 /* PromocodeTableViewCell.swift */; };
 		F401A2D92A9CF9F500F5A4E5 /* EnterPromoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401A2D82A9CF9F500F5A4E5 /* EnterPromoViewController.swift */; };
+		F401A32D2AA1FA8900F5A4E5 /* TransparentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401A32C2AA1FA8900F5A4E5 /* TransparentCell.swift */; };
 		F4738E1F2A84CF14003E2311 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4738E1E2A84CF14003E2311 /* AppDelegate.swift */; };
 		F4738E212A84CF14003E2311 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4738E202A84CF14003E2311 /* SceneDelegate.swift */; };
 		F4738E232A84CF14003E2311 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4738E222A84CF14003E2311 /* SplashViewController.swift */; };
@@ -57,6 +58,7 @@
 		F401A2D22A9CDCC000F5A4E5 /* AddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTableViewCell.swift; sourceTree = "<group>"; };
 		F401A2D62A9CF6A100F5A4E5 /* PromocodeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromocodeTableViewCell.swift; sourceTree = "<group>"; };
 		F401A2D82A9CF9F500F5A4E5 /* EnterPromoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPromoViewController.swift; sourceTree = "<group>"; };
+		F401A32C2AA1FA8900F5A4E5 /* TransparentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentCell.swift; sourceTree = "<group>"; };
 		F4738E1B2A84CF14003E2311 /* Roll-n-Bite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Roll-n-Bite.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4738E1E2A84CF14003E2311 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4738E202A84CF14003E2311 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 				F4738E602A8A1518003E2311 /* ProductCell.swift */,
 				F4738E582A851A37003E2311 /* StoryContainerCell.swift */,
 				F4C6D4282A8D1C9000AA49D4 /* CategoryContainerCell.swift */,
+				F401A32C2AA1FA8900F5A4E5 /* TransparentCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				F4738E3E2A84D496003E2311 /* ProfileViewController.swift in Sources */,
 				F4AF58E82A964A6D004F0B91 /* Highlights.swift in Sources */,
 				F4738E592A851A37003E2311 /* StoryContainerCell.swift in Sources */,
+				F401A32D2AA1FA8900F5A4E5 /* TransparentCell.swift in Sources */,
 				F401A2D92A9CF9F500F5A4E5 /* EnterPromoViewController.swift in Sources */,
 				F4738E3C2A84D279003E2311 /* MainScreenViewController.swift in Sources */,
 				F4738E4C2A84EEEB003E2311 /* RuDeliveryTableViewCell.swift in Sources */,

@@ -8,7 +8,7 @@ class CategoryContainerCell: UICollectionViewCell {
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 150, height: 50)
+        layout.itemSize = CGSize(width: 100, height: 50)
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.showsHorizontalScrollIndicator = false
@@ -30,7 +30,7 @@ class CategoryContainerCell: UICollectionViewCell {
     }
     
     func setupViews() {
-        contentView.backgroundColor = .orange
+        contentView.backgroundColor = .green
         contentView.addSubview(collectionView)
     }
     
@@ -71,12 +71,20 @@ class CategoryCell: UICollectionViewCell {
     
     static let id = "CategoryCell"
     
-    var titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "ДОНЕРЫ"
-        label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
-        return label
+//    var titleLabel: UILabel = {
+//        let label = UILabel()
+//        label.text = "ДОНЕРЫ"
+//        label.textAlignment = .center
+//        label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+//        return label
+//    }()
+    
+    var titleButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("ДОНЕРЫ", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        button.setTitleColor(.black, for: .normal)
+        return button
     }()
     
     override init(frame: CGRect) {
@@ -92,17 +100,20 @@ class CategoryCell: UICollectionViewCell {
     func setupViews() {
         layer.cornerRadius = 17
         layer.masksToBounds = true
-        contentView.addSubview(titleLabel)
-        contentView.backgroundColor = .systemGray6.withAlphaComponent(0.6)
+        contentView.addSubview(titleButton)
+        contentView.backgroundColor = .green
     }
     
     func setupConstraints() {
-        titleLabel.snp.makeConstraints { make in
+        titleButton.snp.makeConstraints { make in
             make.top.left.right.bottom.equalTo(contentView)
+            make.width.equalTo(20)
         }
     }
     
     func update(with category: Category) {
-        titleLabel.text = category.title
+        //titleButton.titleLabel?.text = category.title
+        
+        titleButton.setTitle(category.title, for: .normal)
     }
 }

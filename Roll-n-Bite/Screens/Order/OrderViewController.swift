@@ -1,6 +1,14 @@
 import UIKit
 
-class OrderViewController: UIViewController {
+class OrderViewController: UIViewController, AddressCellDelegate {
+    func didSelectAddressCell() {
+        let deliveryVC = DeliveryAdressesViewController()
+        if let sheet = deliveryVC.sheetPresentationController {
+            sheet.detents = [.medium()]
+            self.present(deliveryVC, animated: true)
+        }
+    }
+    
     
     var topView: UIView = {
         let view = UIView()
@@ -98,6 +106,7 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
 
         if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: AddressTableViewCell.id, for: indexPath) as! AddressTableViewCell
+            cell.addressDelegate = self
             return cell
         }
         
@@ -118,3 +127,5 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
     
     
 }
+
+

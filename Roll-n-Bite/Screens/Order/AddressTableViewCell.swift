@@ -1,8 +1,14 @@
 import UIKit
 
+protocol AddressCellDelegate {
+    func didSelectAddressCell()
+}
+
 class AddressTableViewCell: UITableViewCell {
     
     static let id = "AddressTableViewCell"
+    
+    var addressDelegate: AddressCellDelegate?
     
     var grayView: UIView = {
         let view = UIView()
@@ -16,10 +22,19 @@ class AddressTableViewCell: UITableViewCell {
         return label
     }()
     
-    var addressLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Тверская застава 7"
-        return label
+//    var addressLabel: UILabel = {
+//        let label = UILabel()
+//        label.text = "Тверская застава 7"
+//        return label
+//    }()
+    
+    lazy var addressButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Тверская застава 7", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.contentHorizontalAlignment = .left
+        button.addTarget(self, action: #selector(addressButtonTapped), for: .touchUpInside)
+        return button
     }()
     
     var fastLabel: UILabel = {
@@ -35,6 +50,10 @@ class AddressTableViewCell: UITableViewCell {
         stack.backgroundColor = .systemGray6
         stack.layer.cornerRadius = 17
         stack.clipsToBounds = true
+        
+        let insets = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 0)
+        stack.layoutMargins = insets
+        stack.isLayoutMarginsRelativeArrangement = true
         return stack
     }()
     
@@ -51,8 +70,9 @@ class AddressTableViewCell: UITableViewCell {
     func setupViews() {
         contentView.addSubview(stackView)
         stackView.addArrangedSubview(waitingLabel)
-        stackView.addArrangedSubview(addressLabel)
+        stackView.addArrangedSubview(addressButton)
         stackView.addArrangedSubview(fastLabel)
+        
     }
     
     func setupConstraints() {
@@ -60,20 +80,25 @@ class AddressTableViewCell: UITableViewCell {
             make.edges.equalTo(contentView)
         }
         
-        waitingLabel.snp.makeConstraints { make in
-            make.left.equalTo(stackView).inset(16)
-            make.top.equalTo(stackView).inset(16)
-        }
-        
-        addressLabel.snp.makeConstraints { make in
-            make.left.equalTo(stackView).inset(16)
-        }
-        
-        fastLabel.snp.makeConstraints { make in
-            make.left.equalTo(stackView).inset(16)
-            make.bottom.equalTo(stackView).inset(16)
-        }
+//        waitingLabel.snp.makeConstraints { make in
+//            make.left.equalTo(stackView).inset(16)
+//            make.top.equalTo(stackView).inset(16)
+//        }
+//
+//        addressLabel.snp.makeConstraints { make in
+//            make.left.equalTo(stackView).inset(16)
+//        }
+//
+//        fastLabel.snp.makeConstraints { make in
+//            make.left.equalTo(stackView).inset(16)
+//            make.bottom.equalTo(stackView).inset(16)
+//        }
 
     }
+    
+    @objc func addressButtonTapped() {
+        addressDelegate?.didSelectAddressCell()
+    }
+    
 }
 

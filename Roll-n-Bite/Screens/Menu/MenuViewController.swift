@@ -1,9 +1,10 @@
 import UIKit
 
 enum MenuSectionType: Int {
-    case highlights = 0
-    case categories = 1
-    case menu = 2
+    case transparent = 0
+    case highlights = 1
+    case categories = 2
+    case menu = 3
 }
 
 class MenuViewController: UIViewController, ProductCellDelegate {
@@ -25,26 +26,26 @@ class MenuViewController: UIViewController, ProductCellDelegate {
     var products = [Product]()
     
     //MARK: - UI
-    lazy var deliveryButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("В донерной ❯", for: .normal)
-        button.setTitleColor(.systemIndigo, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .bold)
-        button.addTarget(self, action: #selector(showDeliveryAdresses), for: .touchUpInside)
-        return button
-    }()
-    
-    var adressLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Суворовский 56"
-        label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
-        return label
-    }()
+//    lazy var deliveryButton: UIButton = {
+//        let button = UIButton()
+//        button.setTitle("В донерной ❯", for: .normal)
+//        button.setTitleColor(.systemIndigo, for: .normal)
+//        button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .bold)
+//        button.addTarget(self, action: #selector(showDeliveryAdresses), for: .touchUpInside)
+//        return button
+//    }()
+//
+//    var adressLabel: UILabel = {
+//        let label = UILabel()
+//        label.text = "Суворовский 56"
+//        label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+//        return label
+//    }()
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .clear
         collectionView.clipsToBounds = false
         collectionView.layer.cornerRadius = 20
         collectionView.isScrollEnabled = true
@@ -54,6 +55,7 @@ class MenuViewController: UIViewController, ProductCellDelegate {
         collectionView.register(StoryContainerCell.self, forCellWithReuseIdentifier: StoryContainerCell.id)
         collectionView.register(CategoryContainerCell.self, forCellWithReuseIdentifier: CategoryContainerCell.id)
         collectionView.register(ProductCell.self, forCellWithReuseIdentifier: ProductCell.id)
+        collectionView.register(TransparentCell.self, forCellWithReuseIdentifier: TransparentCell.id)
         
         return collectionView
     }()
@@ -93,28 +95,29 @@ class MenuViewController: UIViewController, ProductCellDelegate {
     
     func setupViews() {
         view.backgroundColor = .systemGray5
-        view.addSubview(deliveryButton)
-        view.addSubview(adressLabel)
+        //view.addSubview(deliveryButton)
+        //view.addSubview(adressLabel)
         view.addSubview(collectionView)
         view.addSubview(basketView)
         basketView.addSubview(basketButton)
     }
     
     func setupConstraints() {
-        deliveryButton.snp.makeConstraints { make in
-            make.centerX.equalTo(view)
-            make.top.equalTo(view.safeAreaLayoutGuide)
-        }
-        
-        adressLabel.snp.makeConstraints { make in
-            make.centerX.equalTo(view)
-            make.top.equalTo(deliveryButton.snp.bottom).offset(10)
-        }
+//        deliveryButton.snp.makeConstraints { make in
+//            make.centerX.equalTo(view)
+//            make.top.equalTo(view.safeAreaLayoutGuide)
+//        }
+//        
+//        adressLabel.snp.makeConstraints { make in
+//            make.centerX.equalTo(view)
+//            make.top.equalTo(deliveryButton.snp.bottom).offset(10)
+//        }
 
         collectionView.snp.makeConstraints { make in
-            make.left.right.equalTo(view.safeAreaLayoutGuide)
-            make.bottom.equalTo(view)
-            make.top.equalTo(adressLabel.snp.bottom).offset(20)
+//            make.left.right.equalTo(view.safeAreaLayoutGuide)
+//            make.bottom.equalTo(view)
+//            make.top.equalTo(adressLabel.snp.bottom).offset(20)
+            make.top.left.right.bottom.equalTo(view).inset(16)
         }
         
         basketView.snp.makeConstraints { make in
@@ -145,6 +148,7 @@ extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         if let sectionType = MenuSectionType.init(rawValue: section) {
             switch sectionType {
+            case .transparent: return 1
             case .highlights: return 1
             case .categories: return 1
             case .menu: return products.count
@@ -157,7 +161,12 @@ extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         if let sectionType = MenuSectionType(rawValue: indexPath.section) {
             switch sectionType {
-                
+            case .transparent:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TransparentCell.id, for: indexPath) as! TransparentCell
+                cell.deliveryButtonTapped = { [weak self] in
+                    self?.showDeliveryAdresses()
+                }
+                return cell
             case .highlights:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StoryContainerCell.id, for: indexPath) as! StoryContainerCell
                 cell.update(with: stories)
@@ -178,7 +187,7 @@ extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 3
+        return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -197,6 +206,7 @@ extension MenuViewController: UICollectionViewDelegateFlowLayout {
 
         if let sectionType = MenuSectionType(rawValue: indexPath.section) {
             switch sectionType {
+            case .transparent: return CGSize(width: UIScreen.main.bounds.width, height: 50)
             case .highlights: return CGSize(width: UIScreen.main.bounds.width, height: 200)
             case .categories: return CGSize(width: UIScreen.main.bounds.width, height: 50)
             case .menu: return CGSize(width: 172, height: 280)
@@ -206,7 +216,7 @@ extension MenuViewController: UICollectionViewDelegateFlowLayout {
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10, left: 16, bottom: 5, right: 16)
+        return UIEdgeInsets(top: 10, left: 0, bottom: 5, right: 0)
     }
 }
 

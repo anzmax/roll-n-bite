@@ -129,7 +129,7 @@ class ProductCell: UICollectionViewCell {
     }
     
     func setupViews() {
-        contentView.backgroundColor = .systemGray6.withAlphaComponent(0.6)
+        contentView.backgroundColor = .white
         layer.cornerRadius = 17
         layer.masksToBounds = true
         contentView.addSubview(stackView)
