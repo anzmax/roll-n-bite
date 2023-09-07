@@ -39,6 +39,10 @@
 		F4738E5D2A853FF2003E2311 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4738E5C2A853FF2003E2311 /* ChatViewController.swift */; };
 		F4738E5F2A8541BB003E2311 /* EnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4738E5E2A8541BB003E2311 /* EnterViewController.swift */; };
 		F4738E612A8A1519003E2311 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4738E602A8A1518003E2311 /* ProductCell.swift */; };
+		F49E6B9D2AA8D5B400981E47 /* SumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E6B9C2AA8D5B400981E47 /* SumTableViewCell.swift */; };
+		F49E6B9F2AA8D83A00981E47 /* AddToOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E6B9E2AA8D83A00981E47 /* AddToOrderTableViewCell.swift */; };
+		F49E6BA12AA8DBA500981E47 /* ExtraProductsContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E6BA02AA8DBA500981E47 /* ExtraProductsContainerCell.swift */; };
+		F49E6BA32AA8E29F00981E47 /* BasketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E6BA22AA8E29F00981E47 /* BasketTableViewCell.swift */; };
 		F4AF58E12A95020F004F0B91 /* Information.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AF58E02A95020F004F0B91 /* Information.swift */; };
 		F4AF58E32A950428004F0B91 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AF58E22A950428004F0B91 /* InfoTableViewCell.swift */; };
 		F4AF58E62A96435C004F0B91 /* HighlightsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AF58E52A96435C004F0B91 /* HighlightsViewController.swift */; };
@@ -85,6 +89,10 @@
 		F4738E5C2A853FF2003E2311 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		F4738E5E2A8541BB003E2311 /* EnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterViewController.swift; sourceTree = "<group>"; };
 		F4738E602A8A1518003E2311 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		F49E6B9C2AA8D5B400981E47 /* SumTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SumTableViewCell.swift; sourceTree = "<group>"; };
+		F49E6B9E2AA8D83A00981E47 /* AddToOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToOrderTableViewCell.swift; sourceTree = "<group>"; };
+		F49E6BA02AA8DBA500981E47 /* ExtraProductsContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraProductsContainerCell.swift; sourceTree = "<group>"; };
+		F49E6BA22AA8E29F00981E47 /* BasketTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketTableViewCell.swift; sourceTree = "<group>"; };
 		F4AF58E02A95020F004F0B91 /* Information.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Information.swift; sourceTree = "<group>"; };
 		F4AF58E22A950428004F0B91 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
 		F4AF58E52A96435C004F0B91 /* HighlightsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightsViewController.swift; sourceTree = "<group>"; };
@@ -122,9 +130,13 @@
 			isa = PBXGroup;
 			children = (
 				F401A2D02A9CD38900F5A4E5 /* OrderViewController.swift */,
+				F49E6BA22AA8E29F00981E47 /* BasketTableViewCell.swift */,
 				F401A2D22A9CDCC000F5A4E5 /* AddressTableViewCell.swift */,
 				F401A2D62A9CF6A100F5A4E5 /* PromocodeTableViewCell.swift */,
 				F401A2D82A9CF9F500F5A4E5 /* EnterPromoViewController.swift */,
+				F49E6B9C2AA8D5B400981E47 /* SumTableViewCell.swift */,
+				F49E6B9E2AA8D83A00981E47 /* AddToOrderTableViewCell.swift */,
+				F49E6BA02AA8DBA500981E47 /* ExtraProductsContainerCell.swift */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -279,8 +291,8 @@
 		F4C6D42C2A8E375C00AA49D4 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				F4C6D42D2A8E379900AA49D4 /* CategoryService.swift */,
 				F4C6D42F2A8E3B1B00AA49D4 /* StoryService.swift */,
+				F4C6D42D2A8E379900AA49D4 /* CategoryService.swift */,
 				F4C6D4332A8E418F00AA49D4 /* ProductService.swift */,
 			);
 			path = Services;
@@ -374,6 +386,9 @@
 				F4738E5F2A8541BB003E2311 /* EnterViewController.swift in Sources */,
 				F4738E522A84EF73003E2311 /* InfoViewController.swift in Sources */,
 				F4738E232A84CF14003E2311 /* SplashViewController.swift in Sources */,
+				F49E6B9D2AA8D5B400981E47 /* SumTableViewCell.swift in Sources */,
+				F49E6BA12AA8DBA500981E47 /* ExtraProductsContainerCell.swift in Sources */,
+				F49E6BA32AA8E29F00981E47 /* BasketTableViewCell.swift in Sources */,
 				F4C6D4292A8D1C9000AA49D4 /* CategoryContainerCell.swift in Sources */,
 				F401A2D72A9CF6A100F5A4E5 /* PromocodeTableViewCell.swift in Sources */,
 				F401A2CC2A9747C800F5A4E5 /* YellowButton.swift in Sources */,
@@ -397,6 +412,7 @@
 				F4738E612A8A1519003E2311 /* ProductCell.swift in Sources */,
 				F4AF58E12A95020F004F0B91 /* Information.swift in Sources */,
 				F4738E3A2A84D056003E2311 /* UIWindow+Key.swift in Sources */,
+				F49E6B9F2AA8D83A00981E47 /* AddToOrderTableViewCell.swift in Sources */,
 				F4738E442A84E12C003E2311 /* UIScrollView+NextPage.swift in Sources */,
 				F4738E422A84D4D2003E2311 /* MenuViewController.swift in Sources */,
 				F4738E4E2A84EF29003E2311 /* KzDeliveryTableViewCell.swift in Sources */,

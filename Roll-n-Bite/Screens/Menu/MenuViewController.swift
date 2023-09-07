@@ -150,7 +150,7 @@ extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSour
             switch sectionType {
             case .transparent: return 1
             case .highlights: return 1
-            case .categories: return 1
+            case .categories: return categories.count
             case .menu: return products.count
             }
         }
@@ -224,8 +224,20 @@ extension MenuViewController: UICollectionViewDelegateFlowLayout {
 extension MenuViewController {
     
     func fetchCategories() {
-        categories = categoryService.fetchCategories()
-        collectionView.reloadData()
+    
+//        categories = categoryService.fetchCategories()
+//        collectionView.reloadData()
+        
+        categoryService.fetchCategories { result in
+            switch result {
+                
+            case .success(let categories):
+                self.categories = categories
+                self.collectionView.reloadData()
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
     func fetchStories() {
@@ -234,21 +246,20 @@ extension MenuViewController {
     }
     
     func fetchProducts() {
-        products = productService.fetchProducts()
-        collectionView.reloadData()
+        
+        productService.fetchProducts { result in
+            
+            switch result {
+                
+            case .success(let products):
+                self.products = products
+                self.collectionView.reloadData()
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }
-
-//extension MenuViewController: UIScrollViewDelegate {
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        if scrollView == collectionView {
-//
-//            let offsetY = scrollView.contentOffset.y
-//            collectionView.transform = CGAffineTransform(translationX: 0, y: -offsetY)
-//        }
-//
-//    }
-//}
 
 
 

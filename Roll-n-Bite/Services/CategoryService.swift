@@ -1,18 +1,63 @@
 import UIKit
 
+ enum NetworkError: Error {
+    case emptyUrl
+    case emptyJson
+    case parsingInvalid
+}
+
 class CategoryService {
     
-    func fetchCategories() -> [Category] {
+    func fetchCategories(completion: @escaping (Result<[Category], NetworkError>) -> Void) {
         
-        let categories: [Category] = [
-            Category(title: "ДОНЕРЫ"),
-            Category(title: "КОМБО"),
-            Category(title: "ЗАКУСКИ"),
-            Category(title: "СОУСЫ"),
-            Category(title: "НАПИТКИ"),
-            Category(title: "ДЕСЕРТЫ"),
-            Category(title: "ТОВАРЫ"),
-        ]
-        return categories
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "apingweb.com"
+        urlComponents.path = "/api/rest/36e1f4ea2100bf4384d036b34dbda4d72/categories"
+        
+        guard let url = urlComponents.url else {
+            return completion(.failure(.emptyUrl))
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        let urlSession = URLSession(configuration: .default)
+        urlSession.dataTask(with: request) { data, response, error in
+            guard let data = data else {
+                completion(.failure(.emptyJson))
+                return
+            }
+            
+            let jsonDecoder = JSONDecoder()
+            
+            do {
+                let categories = try jsonDecoder.decode([Category].self, from: data)
+                DispatchQueue.main.async {
+                    completion(.success(categories))
+                }
+            }
+            catch {
+                print(error)
+                completion(.failure(.parsingInvalid))
+            }
+        }.resume()
+        
     }
+    
+    //https://apingweb.com/api/rest/36e1f4ea2100bf4384d036b34dbda4d72/categories
+    
+//    func fetchCategories() -> [Category] {
+//
+//        let categories: [Category] = [
+//            Category(title: "ДОНЕРЫ"),
+//            Category(title: "КОМБО"),
+//            Category(title: "ЗАКУСКИ"),
+//            Category(title: "СОУСЫ"),
+//            Category(title: "НАПИТКИ"),
+//            Category(title: "ДЕСЕРТЫ"),
+//            Category(title: "ТОВАРЫ"),
+//        ]
+//        return categories
+//    }
 }

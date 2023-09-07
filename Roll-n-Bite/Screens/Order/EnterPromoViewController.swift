@@ -10,7 +10,7 @@ class EnterPromoViewController: UIViewController {
         let textField = UITextField()
         textField.backgroundColor = .systemGray6
         textField.clearButtonMode = .never
-        textField.text = "Введи его сюда"
+        textField.placeholder = "Введи его сюда"
         textField.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         textField.textColor = .black
         textField.tintColor = .black
@@ -27,6 +27,8 @@ class EnterPromoViewController: UIViewController {
         let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: textField.frame.height))
         textField.leftView = leftView
         textField.leftViewMode = .always
+        
+        textField.delegate = self
 
         return textField
     }()
@@ -66,3 +68,10 @@ class EnterPromoViewController: UIViewController {
 }
 
 
+extension EnterPromoViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}

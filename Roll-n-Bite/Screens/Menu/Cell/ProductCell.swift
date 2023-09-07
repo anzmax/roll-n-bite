@@ -124,7 +124,7 @@ class ProductCell: UICollectionViewCell {
         count = 0
         titleLabel.text = product.title
         priceLabel.text = "\(product.price) P"
-        productImageView.image = product.image
+        productImageView.image = UIImage(named: product.image)
         weightLabel.text = "\(product.weight) г"
     }
     

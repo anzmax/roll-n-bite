@@ -49,7 +49,7 @@ class CategoryContainerCell: UICollectionViewCell {
 extension CategoryContainerCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7
+        return categories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -70,14 +70,6 @@ extension CategoryContainerCell: UICollectionViewDataSource, UICollectionViewDel
 class CategoryCell: UICollectionViewCell {
     
     static let id = "CategoryCell"
-    
-//    var titleLabel: UILabel = {
-//        let label = UILabel()
-//        label.text = "ДОНЕРЫ"
-//        label.textAlignment = .center
-//        label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
-//        return label
-//    }()
     
     var titleButton: UIButton = {
         let button = UIButton()
@@ -111,9 +103,7 @@ class CategoryCell: UICollectionViewCell {
         }
     }
     
-    func update(with category: Category) {
-        //titleButton.titleLabel?.text = category.title
-        
+    func update(with category: Category) {        
         titleButton.setTitle(category.title, for: .normal)
     }
 }

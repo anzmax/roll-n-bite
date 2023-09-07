@@ -17,13 +17,14 @@ class PromocodeTableViewCell: UITableViewCell {
     var promoLabel: UILabel = {
         let label = UILabel()
         label.text = "Ввести промокод"
+        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         return label
     }()
 
     lazy var arrowButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "arrowtriangle.forward"), for: .normal)
-        button.tintColor = .systemIndigo
+        button.setTitle("❯", for: .normal)
+        button.setTitleColor(.systemIndigo, for: .normal)
         button.addTarget(self, action: #selector(arrowButtonTapped), for: .touchUpInside)
         return button
     }()

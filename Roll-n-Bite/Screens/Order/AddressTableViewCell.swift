@@ -19,19 +19,15 @@ class AddressTableViewCell: UITableViewCell {
     var waitingLabel: UILabel = {
         let label = UILabel()
         label.text = "ЖДЕМ ТЕБЯ В ДОНЕРНОЙ"
+        label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         return label
     }()
-    
-//    var addressLabel: UILabel = {
-//        let label = UILabel()
-//        label.text = "Тверская застава 7"
-//        return label
-//    }()
-    
+
     lazy var addressButton: UIButton = {
         let button = UIButton()
         button.setTitle("Тверская застава 7", for: .normal)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(.systemIndigo, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         button.contentHorizontalAlignment = .left
         button.addTarget(self, action: #selector(addressButtonTapped), for: .touchUpInside)
         return button
@@ -40,6 +36,7 @@ class AddressTableViewCell: UITableViewCell {
     var fastLabel: UILabel = {
         let label = UILabel()
         label.text = "Как можно скорее"
+        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         return label
     }()
     
@@ -57,6 +54,12 @@ class AddressTableViewCell: UITableViewCell {
         return stack
     }()
     
+    var separatorView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemGray5
+        return view
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
@@ -71,6 +74,7 @@ class AddressTableViewCell: UITableViewCell {
         contentView.addSubview(stackView)
         stackView.addArrangedSubview(waitingLabel)
         stackView.addArrangedSubview(addressButton)
+        stackView.addArrangedSubview(separatorView)
         stackView.addArrangedSubview(fastLabel)
         
     }
@@ -80,19 +84,11 @@ class AddressTableViewCell: UITableViewCell {
             make.edges.equalTo(contentView)
         }
         
-//        waitingLabel.snp.makeConstraints { make in
-//            make.left.equalTo(stackView).inset(16)
-//            make.top.equalTo(stackView).inset(16)
-//        }
-//
-//        addressLabel.snp.makeConstraints { make in
-//            make.left.equalTo(stackView).inset(16)
-//        }
-//
-//        fastLabel.snp.makeConstraints { make in
-//            make.left.equalTo(stackView).inset(16)
-//            make.bottom.equalTo(stackView).inset(16)
-//        }
+        separatorView.snp.makeConstraints { make in
+            make.height.equalTo(1)
+            make.left.equalTo(contentView).offset(16)
+            make.right.equalTo(contentView).inset(16)
+        }
 
     }
     

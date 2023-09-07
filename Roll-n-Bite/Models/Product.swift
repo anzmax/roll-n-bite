@@ -1,8 +1,9 @@
 import UIKit
 
-struct Product {
+struct Product: Codable {
+    var id: Int
     var title: String
     var price: String
     var weight: String
-    var image: UIImage?
+    var image: String
 }
