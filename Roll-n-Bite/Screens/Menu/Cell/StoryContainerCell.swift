@@ -110,6 +110,8 @@ class StoryCell: UICollectionViewCell {
     }
     
     func update(with story: Story) {
-        storyImageView.image = story.image
+       // storyImageView.image = story.image
+        storyImageView.image = (UIImage(named: story.image))
     }
 }
+                        

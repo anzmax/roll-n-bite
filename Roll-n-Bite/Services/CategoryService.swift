@@ -42,22 +42,5 @@ class CategoryService {
                 completion(.failure(.parsingInvalid))
             }
         }.resume()
-        
     }
-    
-    //https://apingweb.com/api/rest/36e1f4ea2100bf4384d036b34dbda4d72/categories
-    
-//    func fetchCategories() -> [Category] {
-//
-//        let categories: [Category] = [
-//            Category(title: "ДОНЕРЫ"),
-//            Category(title: "КОМБО"),
-//            Category(title: "ЗАКУСКИ"),
-//            Category(title: "СОУСЫ"),
-//            Category(title: "НАПИТКИ"),
-//            Category(title: "ДЕСЕРТЫ"),
-//            Category(title: "ТОВАРЫ"),
-//        ]
-//        return categories
-//    }
 }

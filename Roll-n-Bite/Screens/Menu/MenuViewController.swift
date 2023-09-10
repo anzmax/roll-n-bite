@@ -224,10 +224,7 @@ extension MenuViewController: UICollectionViewDelegateFlowLayout {
 extension MenuViewController {
     
     func fetchCategories() {
-    
-//        categories = categoryService.fetchCategories()
-//        collectionView.reloadData()
-        
+
         categoryService.fetchCategories { result in
             switch result {
                 
@@ -241,8 +238,16 @@ extension MenuViewController {
     }
     
     func fetchStories() {
-        stories = storyService.fetchStories()
-        collectionView.reloadData()
+        
+        storyService.fetchStories { result in
+            switch result {
+            case .success(let stories):
+                self.stories = stories
+                self.collectionView.reloadData()
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
     func fetchProducts() {
